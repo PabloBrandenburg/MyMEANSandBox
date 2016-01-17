@@ -1,0 +1,152 @@
+<section class="section-sm">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-10 col-sm-offset-1">
+				<h2 class="text-center text-primary">Create Classroom</h2><!-- /.text-center text-primary -->
+				<br />
+				<ul class="list-inline list-wizard list-wizard-success widget-md text-center">
+					<li>
+						<img src="assets/images/c1.png" alt="" />
+					</li>
+					<li>
+						<img src="assets/images/c2.png" alt="" />
+					</li>
+					<li class="active">
+						<img src="assets/images/c3.png" alt="" />
+					</li>
+				</ul><!-- /.list-inline list-wizard list-wizard-success widget-md text-center-->
+				<div class="row">
+					<div class="col-sm-8 col-sm-offset-2">
+						<!-- Image upload cloudinary section -->
+						<div id="direct_upload"
+						     ngf-drop="uploadFiles($files)"
+						     ngf-drag-over-class="dragOverClass($event)"
+						     ng-model="files"
+						     ng-multiple="true">
+
+						    <button class="btn btn-primary btn-lg btn-block" ngf-select="uploadFiles($files)" multiple title="upload" resetOnClick="true" >Select Image to Upload</button>
+						    <br>
+
+						    <h2>Status</h2>
+						    <div class="file" ng-repeat="file in files" enctype="multipart/form-data">
+						        <h3>{{file.name}} {{f.$error}} {{f.$errorParam}}</h3>
+						        <div class="status">{{file.status}}</div>
+						        <div class="progress-bar">
+						          <div class="progress" style="width: {{file.progress}}%" ng-init="progress=0"></div>
+						        </div>
+                                                        <div class="progress">
+                                                          <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{ file.progress }}%">
+                                                            <span class="sr-only">Status: {{ file.progress }}% Complete</span>
+                                                          </div>
+                                                        </div>
+						    </div>
+						</div>
+						<!-- End of Image upload cloudinary section -->
+
+
+
+
+						<form name="stepForm" ng-submit="stepForm.$valid && classroom.submitStep3()" novalidate>
+							<div class="form-stacked-form-controls" id="url_fields_container">
+								<div class="form-group form-group-stack has-feedback">
+									<input  ng-model="classroom.form.image1"type="text" class="form-control input-lg" placeholder="Add URL" />
+									<span class="glyphicon glyphicon-question-sign form-control-feedback text-muted" data-toggle="tooltip" data-placement="top" data-container="body" data-title="URL"></span>
+								</div>
+								<div class="form-group form-group-stack">
+									<input ng-model="classroom.form.image_url" type="text" class="form-control input-lg" placeholder="Upload Image" />
+								</div><!-- /.form-group form-group-stack -->
+								<div class="input-group" ng-repeat="image in classroom.image_urls">
+									<input  type="text" class="form-control input-lg" placeholder="{{ image.src }}" disabled/>
+									<div class="input-group-btn form-group form-group-stack">
+									<button class="btn btn-danger" type="button">Remove</button>
+									</div>
+								</div><!-- /.form-group form-group-stack -->
+								<div class="form-group" style="margin-top: 15px;">
+									<!-- <a ng-click="classroom.image_url_upload()" class="btn btn-primary btn-lg">Add more URL</a> -->
+									<a ng-click="classroom.addURL()" class="btn btn-primary btn-lg">Add more URL</a>
+								</div><!-- /.form-group form-group-stack -->
+							</div><!-- /.form-group form-group-stack -->
+							<article class="widget-md">
+								<figure class="thumbnail thumbnail-alt no-margin-bottom">
+									<img src="assets/images/classroom_thumbnail_1.jpg" class="img-responsive" alt="" />
+									<figcaption class="caption-overlay caption-overlay-slide-down bg-opac-primary">
+										<div class="center-vertical-container">
+											<div class="center-vertical-content">
+												<div class="container-fluid">
+													<p class="text-white">
+														<small>Title</small>
+													</p>
+													<p class="text-white">
+														<small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, veniam!</small>
+													</p>
+													<p class="no-margin-bottom">
+														<a href="#modal-class" class="btn btn-default btn-sm" data-toggle="modal" data-target="#modal-class">Read more &raquo;</a>
+													</p>
+												</div><!-- /.container-fluid -->
+											</div><!-- /.center-vertical-content -->
+										</div><!-- /.center-vertical-container -->
+									</figcaption><!-- /.caption-overlay caption-overlay-slide-down bg-opac-primary -->
+								</figure><!-- /.thumbnail thumbnail-alt no-margin-bottom -->
+								<section class="section-xxs bg-primary">
+									<div class="container-fluid">
+										<ul class="list-inline no-margin-bottom">
+											<li>
+												<a href="#action">
+													<img src="assets/images/facebook.png" class="img-sm" alt="" />
+												</a>
+											</li>
+											<li>
+												<a href="#action">
+													<img src="assets/images/linkedin.png" class="img-sm" alt="" />
+												</a>
+											</li>
+											<li>
+												<a href="#action">
+													<img src="assets/images/google-plus.png" class="img-sm" alt="" />
+												</a>
+											</li>
+										</ul><!-- /.list-inline no-margin-bottom-->
+									</div><!-- /.container-fluid -->
+								</section><!-- /.section-xxs bg-info -->
+							</article><!-- /.widget-md -->
+							
+							 
+							<article>
+						        <div id="carousel-0" class="carousel slide" data-ride="carousel">
+						            <ol class="carousel-indicators">
+						                <li data-target="#carousel-0" ng-repeat="image in classroom.create_classroom.step_three.temp_images" data-slide-to="{{ $index }}" ng-class="{ active : $first }"></li>
+						            </ol>
+						            <div class="carousel-inner">
+						        	<article class="item" ng-class="{ active : $first }" ng-repeat="image in classroom.create_classroom.step_three.temp_images">
+						                    <figure class="thumbnail">
+						        				<!-- <img src="/temp_upload/{{ image.source }}" class="img-responsive" alt="" ng-class="{ active : $first }" />-->
+						        			</figure><!-- /.thumbnail -->
+						                </article><!-- /.item -->
+						            </div><!-- /.carousel-inner -->
+						        </div><!-- /.carousel -->
+							</article><!-- end of article -->
+							<div class="row">
+								<div class="col-sm-4">
+									<div class="form-group">
+										<a ng-href="#/create_classroom_step2/1" class="btn btn-primary btn-lg btn-block">Back</a>
+									</div><!-- /.form-group text-right -->
+								</div><!-- /.col-sm-4 -->
+								<div class="col-sm-4">
+									<div class="form-group">
+										<input type="submit" class="btn btn-primary btn-lg btn-block" value="Submit">
+									</div><!-- /.form-group text-right -->
+								</div><!-- /.col-sm-4 -->
+								<div class="col-sm-4">
+									<div class="form-group">
+										<a ng-href="#/instructor_page" class="btn btn-primary btn-lg btn-block">Back to Home</a>
+									</div><!-- /.form-group text-right -->
+								</div><!-- /.col-sm-4 -->
+							</div><!-- /.row -->
+						</form>
+					</div><!-- /.col-sm-8 col-sm-offset-2 -->
+				</div><!-- /.row -->
+			</div><!-- /.col-sm-10 col-sm-offset-1 -->
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</section><!-- /.section-sm -->
+
