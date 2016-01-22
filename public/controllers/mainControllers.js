@@ -23,7 +23,7 @@ myApp.controller('UploadCtrl', ['$scope','$route', '$rootScope', '$location', 'U
     angular.forEach(files, function(file){
       if (file && !file.$error) {
         file.upload = $upload.upload({
-           url  : "uploads/images",
+           url  : "/uploads/imageUpload",
            method: 'POST',
             data : { 
             user_id : $scope.userid,

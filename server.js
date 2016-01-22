@@ -14,9 +14,9 @@ app.use(bodyParser.json());
 app.use(morgan('dev'));
 
 //ROUTES FOR OUR API-------------------------------------------------------------------------
-var apiUploads = require ('./server/routes/apiUploads.js')(app, express, mongoose, config);//API router 
-    //all routes prefix with /uploads 
-    app.use('/uploads', apiUploads);
+var apiuploads = require ('./server/routes/apiUploads.js')(app, express);//API router 
+//all routes prefix with /uploads 
+app.use('/uploads', apiuploads);
 
 // connect to the database
 mongoose.connect(config.localdb);
