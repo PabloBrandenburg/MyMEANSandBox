@@ -1,0 +1,19 @@
+{
+    "_id":"5345243524",
+    "location_1": {
+        "user_id":"2312312",
+        "loc_name":"The Commons",
+        "zip_code":"80204",
+        "address":"1245 Champa St",
+        "city":"Denver",
+        "state":"CO"
+    },
+    "location_2": {
+        "user_id":"2312312",
+        "loc_name":"Denver Library",
+        "zip_code":"80204",
+        "address":"10 W 14th Ave Pkwy",
+        "city":"Denver",
+        "state":"CO"
+    }
+}

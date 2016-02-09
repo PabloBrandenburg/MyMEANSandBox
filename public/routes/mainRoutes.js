@@ -18,4 +18,9 @@ myApp.config(function($routeProvider) {
         controller : "ImageCtrl",
         controllerAs: 'imgC'
       })
+      .when('/googleMap', {
+        templateUrl : '../pages/googleMap.html',
+        controller : "gmapCtrl",
+        controllerAs: 'gmCtrl'
+      })
   });

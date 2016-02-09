@@ -1,3 +1,11 @@
 .widget-md{
     padding-bottom: 20px;
 }
+
+#MapContainer{
+    height: 500px;
+    width: 500px;
+    margin: 0px;
+    padding: 0px;
+    padding-left: 50px;
+}

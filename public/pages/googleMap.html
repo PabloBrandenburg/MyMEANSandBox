@@ -1,0 +1,23 @@
+<div class="container" id="MapContainer" ng-controller="gmapCtrl as vm">
+    <h1>Google Map Feature</h1>
+    <p> This section shows the google map component to be used in our web app
+    </p>
+    
+    <p>
+        Content:
+    {{vm.address.location_1.address}}
+    </p>
+    
+    <ng-map center="39.761849, -104.880625" zoom="10" mayTypeId="TERRAIN">
+    <shape name="circle" no-watcher="true"
+      stroke-color="#FF0000"
+      stroke-opacity="0.8"
+      stroke-weight="2"
+      fill-color="#FF0000"
+      fill-opacity="0.35"
+      center="{{vm.address.location_1.address}}"
+      radius="38577">
+    </shape>
+  </ng-map>
+    
+</div>
